@@ -26,7 +26,6 @@ void loop() {
     write_freq(3000);
   }
 
-
 }
 
 
