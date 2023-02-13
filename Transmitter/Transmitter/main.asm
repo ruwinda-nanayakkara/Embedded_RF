@@ -1,0 +1,35 @@
+;
+; Transmitter.asm
+;
+; Created: 2/13/2023 5:59:56 PM
+; Author : Ruwinda Nanayakkara
+;
+
+.include "m328pdef.inc"
+
+	LDI R20,HIGH(RAMEND)	; Initalizing the stack
+	OUT SPH,R20
+	LDI R20,LOW(RAMEND)
+	OUT SPL,R20
+	SBI DDRB,3
+
+XX:	SBI PORTB,3
+	RCALL DELAY
+	CBI PORTB,3
+	RCALL DELAY
+	RJMP XX
+
+DELAY:	LDI R16,0
+		OUT TCNT0,R16
+		LDI R20,124
+		OUT OCR0A,R20
+		LDI R20,0x0B
+		OUT TCCR0A,R20
+AGAIN:	IN R20,TIFR0
+		SBRS R20,OCF0A
+		RJMP AGAIN
+		LDI R20,0x00
+		OUT TCCR0A,R20
+		LDI R20,(0<<OCF0A)
+		OUT TIFR0,R20
+		RET
