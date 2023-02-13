@@ -1,0 +1,10 @@
+upload.txt
+Transmitter/Transmitter/Transmitter.componentinfo.xml
+*.asmproj
+*.hex
+Transmitter/Transmitter.atsln
+Transmitter/.vs/Transmitter/v14/.atsuo
+Transmitter/Transmitter/Debug/Transmitter.lss
+Transmitter/Transmitter/Debug/Transmitter.map
+Transmitter/Transmitter/Debug/Transmitter.obj
+Transmitter/Transmitter/Debug/Transmitter.tmp
