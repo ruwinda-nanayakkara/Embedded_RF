@@ -1,6 +1,6 @@
 //Transmitter code (ProMini)
 
-int TX = 9;
+int TX = 6;
 int front = 2;
 int back = 3;
 
@@ -12,12 +12,12 @@ pinMode(back,INPUT);
 
 void loop() {
 
-  if(digitalRead(front))
+  if(digitalRead(front)== 0)
   {
     write_freq(1000);
   }
   
-  else if(digitalRead(back))
+  else if(not digitalRead(back) == 0)
   {
     write_freq(1500);
   }
