@@ -1,0 +1,35 @@
+;
+; Reciver.asm
+;
+; Created: 2/13/2023 5:59:56 PM
+; Author : Ruwinda Nanayakkara
+;
+
+.include "m328pdef.inc"
+.ORG 0					;location for reset
+	JMP	MAIN
+
+MAIN: LDI R20,HIGH(RAMEND)	; Initalizing the stack
+	OUT SPH,R20
+	LDI R20,LOW(RAMEND)
+	OUT SPL,R20
+	CBI DDRD,PD2
+	SBI DDRD,PD6
+LOOP: SBIS PIND,PD2
+	RJMP LOOP
+	LDI R16,0
+	OUT TCNT0,R16
+	LDI R20,0x00
+	OUT TCCR0A,R20
+	LDI R20,0x05
+	OUT TCCR0B,R20
+LOOP1: SBIC PIND,2
+	RJMP LOOP1
+	IN R16,TCNT0
+	CPI R16,0x60
+	BRLO NORMAL
+	SBI PORTD,6
+	RJMP LOOP
+NORMAL: 
+	CBI PORTD,6
+	RJMP LOOP
