@@ -8,9 +8,13 @@ Transmitter/Transmitter/Debug/Transmitter.lss
 Transmitter/Transmitter/Debug/Transmitter.map
 Transmitter/Transmitter/Debug/Transmitter.obj
 Transmitter/Transmitter/Debug/Transmitter.tmp
+*.xml
 Reciver/.vs/Reciver/v14/.atsuo
+Reciver/Reciver.atsln
 *.lss
 *.map
-*.obj
-*.tmp
 *.xml
+*.tmp
+*.obj
+*.map
+*.lss
